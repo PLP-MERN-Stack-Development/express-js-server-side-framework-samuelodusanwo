@@ -291,6 +291,10 @@ app.get('/api/products/stats', async (req, res, next) => {
       acc[category] = (acc[category] || 0) + 1
       return acc
     }, {})
+    res.json({
+      totalProduct: products.length,
+      countByCategory: stats
+    })
   } catch (err) {
     next(err)
   }
